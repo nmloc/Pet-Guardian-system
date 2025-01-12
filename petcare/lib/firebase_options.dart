@@ -58,16 +58,20 @@ class DefaultFirebaseOptions {
     appId: '1:729399796474:android:ad8afe41c3bd15a1ec9f43',
     messagingSenderId: '729399796474',
     projectId: 'pet-care-b0d24',
+    databaseURL: 'https://pet-care-b0d24-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'pet-care-b0d24.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCJlBP6NYpNrnLmQoXf-mgrJxLIKckNESE',
-    appId: '1:729399796474:ios:ac7b19141e9d832dec9f43',
+    appId: '1:729399796474:ios:858aa763b5d2c653ec9f43',
     messagingSenderId: '729399796474',
     projectId: 'pet-care-b0d24',
+    databaseURL: 'https://pet-care-b0d24-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'pet-care-b0d24.appspot.com',
-    iosBundleId: 'com.example.petcare',
+    androidClientId: '729399796474-ph5cn0efl4mkp7kpvk8uod0pn646f7gn.apps.googleusercontent.com',
+    iosClientId: '729399796474-0t5n3dnil1ej6fns407ke8lsvuiu7ied.apps.googleusercontent.com',
+    iosBundleId: 'com.nmloc.petcare',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(

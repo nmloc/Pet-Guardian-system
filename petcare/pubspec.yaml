@@ -2,7 +2,7 @@ name: petcare
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <3.19.2'
+  sdk: ">=3.0.0 <3.19.2"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -40,12 +40,12 @@ dependencies:
   flutter_facebook_auth: ^6.0.2
   crypto: ^3.0.3
   google_sign_in: ^6.1.5
-  sign_in_with_apple: ^5.0.0
-  get: ^4.6.5
+  sign_in_with_apple: ^6.1.4
+  get: ^4.6.6
   shared_preferences: ^2.1.2
   flutter_svg: ^2.0.5
   smooth_page_indicator: ^1.1.0
-  carousel_slider: ^4.2.1
+  carousel_slider: ^5.0.0
   flutter_swipe_button: ^2.1.1+1
   vertical_weight_slider: ^2.5.0
   calendar_date_picker2: ^0.5.3
@@ -57,13 +57,13 @@ dependencies:
   url_strategy: ^0.2.0
   fluttertoast: ^8.2.5
   latlong2: ^0.9.0
-  location: ^5.0.3
+  location: ^7.0.1
   webview_flutter: ^4.7.0
   http: ^1.2.1
   cupertino_icons: ^1.0.6
   font_awesome_flutter: ^10.7.0
   dropdown_button2: ^2.3.9
-  flutter_stripe: ^10.1.1
+  flutter_stripe: ^11.3.0
   flutter_dotenv: ^5.1.0
 
 dev_dependencies:
@@ -75,7 +75,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
   build_runner: 2.4.6
   riverpod_generator: ^2.3.9
 
@@ -84,7 +84,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

@@ -23,7 +23,7 @@ class APPSpeciesScreen extends ConsumerStatefulWidget {
 
 class _APPSpeciesScreenState extends ConsumerState<APPSpeciesScreen> {
   int selectedIndex = 0;
-  CarouselController carouselController = CarouselController();
+  CarouselSliderController carouselController = CarouselSliderController();
 
   @override
   Widget build(BuildContext context) {

@@ -25,7 +25,7 @@ class APPSizeScreen extends ConsumerStatefulWidget {
 
 class _APPSizeScreenState extends ConsumerState<APPSizeScreen> {
   int selectedIndex = 1;
-  CarouselController carouselController = CarouselController();
+  CarouselSliderController carouselController = CarouselSliderController();
 
   @override
   Widget build(BuildContext context) {

@@ -22,7 +22,7 @@ class APPGenderScreen extends ConsumerStatefulWidget {
 
 class _APPGenderScreenState extends ConsumerState<APPGenderScreen> {
   int selectedIndex = 0;
-  CarouselController carouselController = CarouselController();
+  CarouselSliderController carouselController = CarouselSliderController();
 
   @override
   Widget build(BuildContext context) {

@@ -94,7 +94,6 @@ class _APPWeightScreenState extends ConsumerState<APPWeightScreen> {
                           ),
                         ),
                         VerticalWeightSlider(
-                          maxWeight: 100,
                           height: proportionateHeight(70),
                           isVertical: false,
                           controller: weightController,

@@ -1,14 +1,1 @@
-{
-  "functions": [
-    {
-      "source": "functions",
-      "codebase": "default",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log"
-      ]
-    }
-  ]
-}
+{"functions":[{"source":"functions","codebase":"default","ignore":["node_modules",".git","firebase-debug.log","firebase-debug.*.log"]}],"flutter":{"platforms":{"android":{"default":{"projectId":"pet-care-b0d24","appId":"1:729399796474:android:ad8afe41c3bd15a1ec9f43","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"pet-care-b0d24","appId":"1:729399796474:ios:858aa763b5d2c653ec9f43","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"pet-care-b0d24","configurations":{"android":"1:729399796474:android:ad8afe41c3bd15a1ec9f43","ios":"1:729399796474:ios:858aa763b5d2c653ec9f43"}}}}}}
