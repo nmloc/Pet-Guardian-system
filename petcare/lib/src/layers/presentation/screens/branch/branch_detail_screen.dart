@@ -388,7 +388,6 @@ class _ServiceItemWidget extends ConsumerWidget {
   final int price;
 
   const _ServiceItemWidget({
-    super.key,
     required this.name,
     required this.price,
   });

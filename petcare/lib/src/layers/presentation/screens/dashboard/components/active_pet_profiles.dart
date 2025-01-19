@@ -95,10 +95,7 @@ class ActivePetProfiles extends ConsumerWidget {
 class _ActivePetProfileCard extends ConsumerWidget {
   final Pet pet;
 
-  const _ActivePetProfileCard({
-    super.key,
-    required this.pet,
-  });
+  const _ActivePetProfileCard({required this.pet});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

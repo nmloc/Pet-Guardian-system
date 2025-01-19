@@ -61,10 +61,14 @@ class VaccinesScreen extends ConsumerWidget {
           final vaccine = vaccines[index];
 
           return GestureDetector(
-            onTap: () => context.goNamed(AppRoute.vaccineDetail.name,
-                pathParameters: {'vaccineId': vaccine.id}),
+            onTap: () => context.goNamed(
+              AppRoute.vaccineDetail.name,
+              pathParameters: {'vaccineId': vaccine.id},
+            ),
             child: CardContainer(
+              height: proportionateWidth(100),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(

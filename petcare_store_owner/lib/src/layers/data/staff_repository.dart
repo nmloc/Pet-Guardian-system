@@ -58,11 +58,6 @@ class StaffRepository {
   Future<(List<Staff>, DocumentSnapshot?)> lazyFetch(
       int limit, DocumentSnapshot? lastStaff) async {
     return await _userRepository.branchId().then((branchId) async {
-      final List<dynamic> permittedEmails = await _firestore
-          .collection('branch')
-          .doc(branchId)
-          .get()
-          .then((branchDoc) => branchDoc.get('staffs') as List<dynamic>);
       return (lastStaff == null
               ? queryStaffs(branchId).limit(limit)
               : queryStaffs(branchId)
@@ -70,14 +65,11 @@ class StaffRepository {
                   .startAfterDocument(lastStaff))
           .get()
           .then((snapshots) {
-        final queriedStaffs = snapshots.docs
-            .where((doc) => permittedEmails.contains(doc.get('email')))
-            .toList();
-        return queriedStaffs.isEmpty
+        return snapshots.docs.isEmpty
             ? (List<Staff>.empty(), null)
             : (
-                queriedStaffs.map((snapshot) => snapshot.data()).toList(),
-                queriedStaffs.last
+                snapshots.docs.map((snapshot) => snapshot.data()).toList(),
+                snapshots.docs.last
               );
       });
     });

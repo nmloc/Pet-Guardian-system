@@ -18,7 +18,7 @@ class CardContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: proportionateHeight(78),
+        height: proportionateWidth(80),
         width: width,
         padding: EdgeInsets.symmetric(
             vertical: proportionateHeight(12),

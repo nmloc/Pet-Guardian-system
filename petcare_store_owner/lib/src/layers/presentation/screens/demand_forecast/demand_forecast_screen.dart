@@ -141,7 +141,7 @@ class DemandForecastScreen extends ConsumerWidget {
               ),
             ),
             BottomButtonArea(
-                height: proportionateHeight(200),
+                height: proportionateWidth(200),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [

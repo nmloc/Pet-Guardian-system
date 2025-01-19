@@ -332,13 +332,11 @@ class _ListTile extends ConsumerWidget {
 class _TextField extends StatelessWidget {
   final String title;
   final TextEditingController controller;
-  final int maxLines;
 
   const _TextField({
     Key? key,
     required this.title,
     required this.controller,
-    this.maxLines = 1,
   }) : super(key: key);
 
   @override
@@ -347,7 +345,6 @@ class _TextField extends StatelessWidget {
       autocorrect: false,
       textCapitalization: TextCapitalization.sentences,
       controller: controller,
-      maxLines: maxLines,
       prefix: Text(
         title,
         style: AppTextStyles.bodyRegular(15, AppColors.grey700),

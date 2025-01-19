@@ -8,10 +8,10 @@ import 'package:petcare/src/constants/app_sizes.dart';
 
 class CarouselSliderWithIndicator extends ConsumerStatefulWidget {
   const CarouselSliderWithIndicator({
-    Key? key,
+    super.key,
     required this.list,
     required this.items,
-  }) : super(key: key);
+  });
   final List list;
   final List<Widget> items;
 

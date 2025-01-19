@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
@@ -10,9 +9,6 @@ import 'package:petcare/src/constants/app_colors.dart';
 import 'package:petcare/src/constants/app_sizes.dart';
 import 'package:petcare/src/layers/presentation/common_widgets/appbar_basic.dart';
 import 'package:petcare/src/constants/app_text_styles.dart';
-import 'package:petcare/src/layers/data/grooming_repository.dart';
-import 'package:petcare/src/layers/data/insurance_repository.dart';
-import 'package:petcare/src/layers/data/vaccine_repository.dart';
 import 'package:petcare/src/layers/domain/branch.dart';
 import 'package:petcare/src/layers/presentation/screens/branch/branches_lazy_load.dart';
 import 'package:petcare/src/routing/app_router.dart';
@@ -42,16 +38,6 @@ class BranchesScreen extends ConsumerWidget {
     });
 
     Widget content(List<Branch> branches) {
-      AutoDisposeProvider getItemRepo(String category) {
-        if (category == 'Insurance') {
-          return insuranceRepositoryProvider;
-        } else if (category == 'Vaccine') {
-          return vaccineRepositoryProvider;
-        } else {
-          return groomingRepositoryProvider;
-        }
-      }
-
       return ListView.separated(
         padding: EdgeInsets.symmetric(horizontal: proportionateWidth(24)),
         controller: _scrollController,
@@ -70,11 +56,14 @@ class BranchesScreen extends ConsumerWidget {
           final branch = branches[index];
 
           return GestureDetector(
-            onTap: () => context.goNamed(AppRoute.branchDetail.name,
-                pathParameters: {"branchId": branch.id}),
+            onTap: () => context.goNamed(
+              AppRoute.branchDetail.name,
+              pathParameters: {"branchId": branch.id},
+            ),
             child: CardContainer(
-              height: proportionateHeight(85),
+              height: proportionateWidth(100),
               child: Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.network(
                     "https://firebasestorage.googleapis.com/v0/b/pet-care-b0d24.appspot.com/o/pet-guardian-icon.png?alt=media&token=f4d29c98-2034-4a2b-8900-af92a6d9f16d",
@@ -123,13 +112,19 @@ class BranchesScreen extends ConsumerWidget {
                                     : Text(
                                         "${const Distance().as(
                                           LengthUnit.Kilometer,
-                                          LatLng(branch.lat_long.latitude,
-                                              branch.lat_long.longitude),
                                           LatLng(
-                                              data.latitude!, data.longitude!),
+                                            branch.lat_long.latitude,
+                                            branch.lat_long.longitude,
+                                          ),
+                                          LatLng(
+                                            data.latitude!,
+                                            data.longitude!,
+                                          ),
                                         )} km",
                                         style: AppTextStyles.bodyRegular(
-                                            14, AppColors.grey600),
+                                          14,
+                                          AppColors.grey600,
+                                        ),
                                       ),
                                 loading: () =>
                                     const CupertinoActivityIndicator(),
@@ -173,12 +168,13 @@ class BranchesScreen extends ConsumerWidget {
             ),
 
             Expanded(
-                child: isInitialFetching
-                    ? const Center(child: CupertinoActivityIndicator())
-                    : lazyLoadAsync.asData != null &&
-                            (lazyLoadAsync.value ?? []).isEmpty
-                        ? const Center(child: Text('There is no store!'))
-                        : content(lazyLoadAsync.value!)),
+              child: isInitialFetching
+                  ? const Center(child: CupertinoActivityIndicator())
+                  : lazyLoadAsync.asData != null &&
+                          (lazyLoadAsync.value ?? []).isEmpty
+                      ? const Center(child: Text('There is no store!'))
+                      : content(lazyLoadAsync.value!),
+            ),
           ],
         ),
       ),

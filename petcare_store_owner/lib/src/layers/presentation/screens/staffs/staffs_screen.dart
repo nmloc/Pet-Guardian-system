@@ -154,7 +154,7 @@ class StaffsScreen extends ConsumerWidget {
             ),
 
             BottomButtonArea(
-              height: proportionateHeight(114),
+              height: proportionateWidth(114),
               child: SecondaryButton(
                 iconData: CupertinoIcons.add,
                 text: 'Add new staff',

@@ -52,81 +52,83 @@ class TaskBottomSheet extends ConsumerWidget {
         }
       }
 
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: AppTextStyles.bodyMedium(14, AppColors.grey800),
-          ),
-          SizedBox(height: proportionateHeight(12)),
-          Row(
-            mainAxisAlignment: items.length > 2
-                ? MainAxisAlignment.spaceBetween
-                : MainAxisAlignment.start,
-            children: items.entries
-                .map(
-                  (entry) => Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        height: entry.key != '' && entry.key is String
-                            ? proportionateHeight(42)
-                            : proportionateHeight(20),
-                        width: 1,
-                        color: AppColors.grey150,
-                      ),
-                      SizedBox(width: proportionateWidth(12)),
-                      SizedBox(
-                        width: (AppSizes.screenWidth -
-                                proportionateWidth(48) -
-                                proportionateWidth(13) * items.length) /
-                            items.length,
-                        child: useStream
-                            ? StreamBuilder(
-                                stream: getStream(entry.value),
-                                builder: (context, snapshot) {
-                                  if (snapshot.connectionState ==
-                                      ConnectionState.waiting) {
-                                    return const Center(
-                                        child: CupertinoActivityIndicator());
-                                  } else if (snapshot.hasError) {
-                                    return Center(
-                                        child:
-                                            Text('Error: ${snapshot.error}'));
-                                  } else {
-                                    return Text(
-                                      getItemName(snapshot.data),
+      return Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: AppTextStyles.bodyMedium(14, AppColors.grey800),
+            ),
+            SizedBox(height: proportionateHeight(12)),
+            Row(
+              mainAxisAlignment: items.length > 2
+                  ? MainAxisAlignment.spaceBetween
+                  : MainAxisAlignment.start,
+              children: items.entries
+                  .map(
+                    (entry) => Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          height: entry.key != '' && entry.key is String
+                              ? proportionateHeight(42)
+                              : proportionateHeight(20),
+                          width: 1,
+                          color: AppColors.grey150,
+                        ),
+                        SizedBox(width: proportionateWidth(12)),
+                        SizedBox(
+                          width: (AppSizes.screenWidth -
+                                  proportionateWidth(48) -
+                                  proportionateWidth(13) * items.length) /
+                              items.length,
+                          child: useStream
+                              ? StreamBuilder(
+                                  stream: getStream(entry.value),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.waiting) {
+                                      return const Center(
+                                          child: CupertinoActivityIndicator());
+                                    } else if (snapshot.hasError) {
+                                      return Center(
+                                          child:
+                                              Text('Error: ${snapshot.error}'));
+                                    } else {
+                                      return Text(
+                                        getItemName(snapshot.data),
+                                        style: AppTextStyles.bodySemiBold(
+                                            14, AppColors.grey800),
+                                      );
+                                    }
+                                  },
+                                )
+                              : Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    if (entry.key != '' && entry.key is String)
+                                      Text(
+                                        entry.key,
+                                        style: AppTextStyles.bodyRegular(
+                                            14, AppColors.grey700),
+                                      ),
+                                    Text(
+                                      entry.value,
                                       style: AppTextStyles.bodySemiBold(
                                           14, AppColors.grey800),
-                                    );
-                                  }
-                                },
-                              )
-                            : Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  if (entry.key != '' && entry.key is String)
-                                    Text(
-                                      entry.key,
-                                      style: AppTextStyles.bodyRegular(
-                                          14, AppColors.grey700),
+                                      maxLines: maxLines,
                                     ),
-                                  Text(
-                                    entry.value,
-                                    style: AppTextStyles.bodySemiBold(
-                                        14, AppColors.grey800),
-                                    maxLines: maxLines,
-                                  ),
-                                ],
-                              ),
-                      ),
-                    ],
-                  ),
-                )
-                .toList(),
-          ),
-        ],
+                                  ],
+                                ),
+                        ),
+                      ],
+                    ),
+                  )
+                  .toList(),
+            ),
+          ],
+        ),
       );
     }
 
@@ -144,8 +146,8 @@ class TaskBottomSheet extends ConsumerWidget {
             return Container(
               color: AppColors.grey0,
               height: order.dateCompleted.isDefault()
-                  ? proportionateHeight(470)
-                  : proportionateHeight(350),
+                  ? proportionateWidth(470)
+                  : proportionateWidth(350),
               padding: EdgeInsets.all(proportionateHeight(24)),
               child: Column(
                 children: [

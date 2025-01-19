@@ -104,7 +104,6 @@ class _DateItemWidget extends StatelessWidget {
   final bool isSelected;
 
   const _DateItemWidget({
-    super.key,
     required this.day,
     required this.weekday,
     this.isSelected = false,

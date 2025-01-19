@@ -221,10 +221,7 @@ class _Item extends StatelessWidget {
 class _PriceWidget extends ConsumerWidget {
   final int price;
 
-  const _PriceWidget({
-    super.key,
-    required this.price,
-  });
+  const _PriceWidget({required this.price});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

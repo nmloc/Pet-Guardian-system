@@ -282,8 +282,7 @@ class BookingScreen extends ConsumerWidget {
 
 class _TitleWidget extends StatelessWidget {
   final String text;
-  final TextStyle? style;
-  const _TitleWidget(this.text, {Key? key, this.style}) : super(key: key);
+  const _TitleWidget(this.text, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -293,7 +292,7 @@ class _TitleWidget extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: proportionateWidth(24)),
         child: Text(
           text,
-          style: style ?? AppTextStyles.bodySemiBold(16, AppColors.grey800),
+          style: AppTextStyles.bodySemiBold(16, AppColors.grey800),
         ),
       ),
     );
@@ -321,7 +320,6 @@ class _AvailabilityItemWidget extends ConsumerWidget {
   final bool isAvailable;
 
   const _AvailabilityItemWidget({
-    super.key,
     required this.text,
     this.isAvailable = true,
   });
@@ -363,9 +361,7 @@ class _AvailabilityItemWidget extends ConsumerWidget {
 }
 
 class _AvailabilityWidget extends ConsumerWidget {
-  const _AvailabilityWidget({
-    super.key,
-  });
+  const _AvailabilityWidget();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -414,7 +410,6 @@ class _ConfirmButton extends ConsumerWidget {
   final void Function() press;
 
   const _ConfirmButton({
-    super.key,
     required this.category,
     required this.press,
   });
@@ -440,10 +435,7 @@ class _ConfirmButton extends ConsumerWidget {
 class _BranchCard extends ConsumerWidget {
   final Branch branch;
 
-  const _BranchCard({
-    super.key,
-    required this.branch,
-  });
+  const _BranchCard({required this.branch});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -577,7 +569,6 @@ class _GroomingItemWidget extends ConsumerWidget {
   final StateProvider<bool> provider;
 
   const _GroomingItemWidget({
-    super.key,
     required this.id,
     required this.name,
     required this.price,

@@ -81,7 +81,7 @@ class TasksScreen extends ConsumerWidget {
 
       Widget item(OrderModel order) {
         return GestureDetector(
-          onTap: () => showModalBottomSheet<void>(
+          onTap: () => showModalBottomSheet(
             context: context,
             builder: (BuildContext context) => TaskBottomSheet(order.id),
             shape: const RoundedRectangleBorder(
@@ -91,7 +91,7 @@ class TasksScreen extends ConsumerWidget {
             isScrollControlled: true,
           ),
           child: CardContainer(
-            height: proportionateHeight(70),
+            height: proportionateWidth(100),
             padding: EdgeInsets.symmetric(
               horizontal: proportionateWidth(16),
               vertical: proportionateHeight(8),
